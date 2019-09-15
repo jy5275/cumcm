@@ -92,7 +92,7 @@
         \hline
         $v_2^{'}$ & 球在与鼓碰撞后的速度\\
         \hline
-        $\overrightarrow{L}$ & $\overrightarrow{L}$鼓的角动量\\
+        $\overrightarrow{L}$ & 鼓的角动量\\
         \hline
         $\theta$ & 绳与竖直方向的夹角\\
         \hline
@@ -116,26 +116,26 @@
 %	\item 在问题2求解中：
 %	\begin{itemize}
 %		\item 假设鼓在水平方向上没有运动，这是为了方便在分析时锁定绳子上的力和方向。为说明该假设的科学性，我们先计算在鼓保持静止在最低点时绳子上的拉力。即：
-%		\begin{equation}
+%		\begin{equation*}
 %			8Fcos \theta  \geq Mg
-%		\end{equation}
+%		\end{equation*}
 %		可以解出绳子上有拉力70N。本问中，在某一方向的最大拉力为90N，此时有位移：
-%		\begin{equation}
+%		\begin{equation*}
 %			\frac{ \Delta Fsin \theta} {2M} t^{2}
-%		\end{equation}
+%		\end{equation*}
 %		\item 假设在每一个时间段（0.1s）内设角速度是不变的。下给出说明：
 %
 %		首先根据刚体转动公式有
-%		\begin{equation}
+%		\begin{equation*}
 %			\sum  \overrightarrow{F} \times   \overrightarrow{r} =  \overrightarrow{L}
-%		\end{equation}
-%		\begin{equation}
+%		\end{equation*}
+%		\begin{equation*}
 %			\overrightarrow{L} = I\overrightarrow{ \omega }
-%		\end{equation}
+%		\end{equation*}
 %		$\overrightarrow{F}$的作用时间为0.1s，在这一过程中，$\overrightarrow{F}$的方向变化不大，而$\overrightarrow{L}$方向永远与$\overrightarrow{F}$垂直，模被重心到$\overrightarrow{F}$的距离唯一决定，故做外积后$\overrightarrow{L}$的模可以视为不随$t$改变，方向也不随$t$改变，从而$\overrightarrow{\omega}$可视为在0.1s内不变，所求角度为：
-%		\begin{equation}\label{eq:eps}
+%		\begin{equation*}\label{eq:eps}
 %			\theta =  \frac{\overrightarrow{ L_{0} }}{I} t
-%		\end{equation}
+%		\end{equation*}
 %	\end{itemize}
 %	\item \ldots
 \end{enumerate}
@@ -236,19 +236,19 @@ F=
     \label{fig:p1}
 \end{figure}
 由公式
-\begin{equation}
+\begin{equation*}
 	I =  \int r^2 dm
-\end{equation}
+\end{equation*}
 我们取每条矩形框为微元，考虑矩形框的转动惯量。
 \item[步骤二] 求解每条矩形框的转动惯量，分解为求四条边的转动惯量，已知线段绕其中心转动的转动惯量为
-\begin{equation}
+\begin{equation*}
 	I =  \frac{ml^2}{12}
-\end{equation}
+\end{equation*}
 再由转动轴定理\footnote{将转轴外移$d$，则转动惯量增加$m\cdot d \cdot d$}便可以得到每条线框的转动惯量。
 \item[步骤三] 又设这些矩形框宽度为$dz$，便可以计算出他们的质量，再把$dz$从$0\~{}2r$积分便可以得到整体的转动惯量，计算公式为
-\begin{equation}
+\begin{equation*}
 	\int_{0}^{0.4}  \frac{ m_{1} l_{1}^{2}+ 3 m_{1} l_{2}^{2} + m_{2} l_{2}^{2}+ 3m_{2} l_{1}^{2}} {6(2\pi  r^{2}+ 2\pi  rh)}
-\end{equation}
+\end{equation*}
 $m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量，含有小量$dz$。
 \end{description}
 
@@ -268,7 +268,7 @@ $m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量，含有小量$dz$�
     \caption{8名队员的位置与编号}
     \label{fig:p3}
 \end{figure}
-列出力的矢量表达式，之后再用空间解析几何知识计算力臂，代入公式(\ref{eq:eps})，易算得转动角度
+列出力的矢量表达式，之后再用空间解析几何知识计算力臂，代入公式，易算得转动角度。
 \end{enumerate}
 
 \subsection{问题3}
@@ -285,22 +285,7 @@ $m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量，含有小量$dz$�
 \subsection{问题4}
 
 \section{误差分析}
-<<<<<<< HEAD
 
-\subsection{空气阻力}
-短时间内空气阻力的影响可以忽略不计，但随着时间的延长，空气阻力的干扰程度逐渐增大，因此在建立长期模型时，还应将空气阻力纳入影响因素中。
-
-\subsection{摩擦力及排球运动状态}
-另外，实际情况中，排球与鼓面都是粗糙的，之间存在摩擦力的作用，以及排球在碰撞时可能处于旋转状态等等，都会影响模型的精确程度。
-$v_\bot$；平行于鼓面的分量$v_\parallel$。将碰撞后的排球速度分量分别用$v'_\bot$和$v'_\parallel$来表示。排球与鼓面碰撞后，速度的垂直分量改变了自己的方向，而大小仍然未变。
-在摩擦力作用下，速度的平行分量发生了变化，摩擦力的方向与原平行分量的方向相反。如果排球与鼓面壁碰撞时不旋转，那么碰撞后的速度水平分量比$v_\parallel$小。这就是说,反射角$\beta$小于入射角$\alpha$，图1和图2所示的正是这样。如果碰撞前排球如图4所示方向旋转，当排球旋转得足够快时($\omega R>v_\parallel$)，排球速度的水平分量向左，摩擦力的方向向右，并且速度的水平分量大于$v_\parallel$，这种情况下，反射角大于入射角。
-动量的变化量$\vartriangle P$与力$Q$同时产生。借肋于图2我们作出动量的变化量$\vartriangle P=m(v'-v)$(见图5)。
-$t tan\gamma$
-${v_\parallel}{v_\bot}=tan\alpha$，$\frac{v'_\parallel}{v'_\bot}=tan\beta$，$tan\gamma=\mu$，我们得到
-必不可少的，在建模中重要的参考文献当然应该列出。\LaTeX{}在这方面的功能也是十分强大的，下面进介绍一个比较简单的参考文献制作方法。有兴趣的可以学习 \verb|bibtex| 或 \verb|biblatex| 的使用。
-
-\LaTeX{}的入门书籍可以看《\LaTeX{}入门》\cite{liuhaiyang2013latex}。这是一个简单的引用，用 \verb|\cite{bibkey}| 来完成。要引用成功，当然要维护好 bibitem 了。下面是个简单的例子。
-=======
 实际情况中，排球与鼓面都是粗糙的，之间存在摩擦力的作用，以及排球在碰撞时可能处于旋转状态等等，都会影响模型的精确程度。
 
 假设已知排球与鼓面的摩擦系数$\mu$，我们按以下方式进行讨论，将碰撞前排球速度$v$分解为两个分量：垂直于鼓面的分量$v_\bot$；平行于鼓面的分量$v_\parallel$。将碰撞后的排球速度分量分别用$v'_\bot$和$v'_\parallel$来表示。排球与鼓面碰撞后，速度的垂直分量改变了自己的方向，而大小仍然未变。
@@ -310,25 +295,26 @@ ${v_\parallel}{v_\bot}=tan\alpha$，$\frac{v'_\parallel}{v'_\bot}=tan\beta$，$t
 排球与鼓面碰撞后的形变看作是弹性形变，碰撞后排球恢复了自己的形状，因而排球的弹性势能，在碰撞后重新变为排球的动能。换句话说，碰撞前后，排球沿鼓面法线方向运动的动能未变。而在摩擦力作用下，速度的平行分量发生了变化，摩擦力的方向与原平行分量的方向相反。如果排球与鼓面壁碰撞时不旋转，那么碰撞后的速度水平分量比$v_\parallel$小。这就是说,反射角$\beta$小于入射角$\alpha$，图1和图2所示的正是这样。如果碰撞前排球如图4所示方向旋转，当排球旋转得足够快时($\omega R>v_\parallel$)，排球速度的水平分量向左，摩擦力的方向向右，并且速度的水平分量大于$v_\parallel$，这种情况下，反射角大于入射角。
 
 另一种情况，当排球碰撞前不旋转，我们也认为，速度的水平分量不为零，在碰撞的过程中滑动并没有停止。弹力$N$是在球与鼓面接触时产生的，之后弹力$N$将逐渐增大，在排球形变达到最大程度时$N$达到最大值，此后$N$减小到零。在排球与鼓面碰撞过程中摩檫力$f$也不是常量，在任何时刻摩檫力的数学表达式为：
-\begin{equation}
+\begin{equation*}
 	F_\textrm{摩}=\mu N
-\end{equation}
+\end{equation*}
 因此，在整个碰撞过程中，鼓面作用于球的合力的大小要改变，而方向不变。合力$Q$与鼓面法线的夹角为$\gamma$。由图3看出，$tan\gamma=\mu$，这样就有可能求出反射角。
 
 根据牛顿第二定律，排球与鼓面碰撞时排球动量的变化量$\vartriangle P$与力$Q$同时产生。借肋于图2我们作出动量的变化量$\vartriangle P=m(v'-v)$(见图5)。
 这个矢量与图3中的矢量$Q$一样，这个矢量与鼓面法线夹角为$\gamma$。由图5看出，
-\begin{equation}
+\begin{equation*}
 	v'_\parallel=v_\parallel-2v_\bot tan\gamma
-\end{equation}
+\end{equation*}
 等式两端同除以$v_\bot$，并考虑到$\frac{v_\parallel}{v_\bot}=tan\alpha$，$\frac{v'_\parallel}{v'_\bot}=tan\beta$，$tan\gamma=\mu$，我们得到
-\begin{equation}
+\begin{equation*}
 	tan\beta=tan\alpha-2\mu
-\end{equation}
+\end{equation*}
 一般而言，若排球碰撞前不旋转，则摩擦力会导致反射角小于入射角，由此可见摩擦力对模型精确程度确实有一定的影响。
 \section{模型的优点与不足}
 \subsection{模型的优点}
 实际情况中，干扰因素可能有很多，条件也更复杂，我们对条件做了合理的假设与化简，适当舍去计算中的小量，从而使得计算难度相对降低，而模型拟合程度也较高。
->>>>>>> 4a826dfa4ebcfcd138533e2fe463ddac67932fdc
+
+在过程分析中，我们发现队员的发力点、所处的位置等条件，都会随机地发生一定的扰动，为了简化条件控制难度，我们将复杂的变量转化为用统一的物理量即发力的大小、角度等进行控制与表示，减少了模型所需的变量个数，从而降低了模型建立的难度与复杂程度。
 
 在建立模型的过程中，通过视频资料，充分了解现实情况中，发力误差出现的来源。探究调整策略时，构造发力效果满足正态分布的随机数据，模拟现实情况中，队员发力时机和力度存在的误差，使得调整策略具有更稳定、更优良的实施效果。
 \subsection{模型的不足}
