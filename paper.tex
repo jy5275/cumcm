@@ -161,14 +161,67 @@ $$e=\frac{|v_2^{'}-v_1^{'}|}{|v_2-v_1|}$$
 \left\{
 \begin{array}{lr}
 T = 0.5714 \\
-v_2 = -2.8 \\
-v_2^{'} = 2.8 \\
-v_1 = 0.3684 \\
-v_1^{'} = -0.0514
+v_2 = -2.8,\ v_2^{'} = 2.8 \\
+v_1 = 0.3684,\ v_1^{'} = -0.0514
 \end{array}
 \right.
 \end{equation*}
-因此队员们需要控制用力时机与大小，使得鼓在一个周期T内走过的位移和量恰好为零，碰撞前后速度恰符合上述要求。为简化用力策略，不妨设鼓在周期内第一段时间$t_1$以恒定加速度$a_1$运动，在周期内第二段时间$t_2$以恒定加速度$a_2$运动，$v-t$图如图xxx所示。
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{v.png}
+	\caption{一个周期内的v-t图}
+	\label{vt} %此处的label相当于一个图片的专属标志，目的是方便上下文的引用
+\end{figure}
+因此队员们需要控制用力时机与大小，使得鼓在一个周期T内走过的位移和量恰好为零，碰撞前后速度恰符合上述要求。
+为简化用力策略，不妨将周期T分为两阶段，每阶段鼓以不同的加速度做匀加速运动。设鼓在周期内第一段时间$t_1$以恒定加速度$a_1$运动，在周期内第二段时间$t_2$以恒定加速度$a_2$运动，$v-t$图如图\ref{vt}所示。周期内运动参数满足方程\ref{eq1}.
+\begin{equation}
+\left\{
+\begin{array}{lr}
+\frac{1}{2}(2v_1^{'}+a_1t_1)t_1 + \frac{-(v_1^{'}+a_1t_1)^2}{2a_2}+\frac{v_1^2}{2a_2} = 0 \\
+v_1-(v_1^{'}+a_1t_1) = a_2t_2 \\
+t_1 + t_2 = T
+\end{array}
+\label{eq1}
+\right.
+\end{equation}
+方程\ref{eq1}中未知量有$t_1, t_2, a_1, a_2$，不妨取$t_1=0.1$，即解得$a_1 = -2.4354,\ a_2 = 1.4071$.
+根据第一阶段与第二阶段不同的运动状态，有第一阶段的$h$与$F$解析式如方程\ref{stage1}，第二阶段解析式如方程\ref{stage2}
+
+\begin{equation}
+\left\{
+\begin{array}{lr}
+h=h_0+v_1^{'}t+\frac{1}{2}a_1t^2\\
+F=\frac{ML}{nh}(g+a_1)
+\end{array}
+\right.
+\label{stage1}
+\end{equation}
+
+\begin{equation}
+\left\{
+\begin{array}{lr}
+h=h_1+v^{'}(t-t_1)+\frac{1}{2}a_2(t-t_1)^2\\
+F=\frac{ML}{nh}(g+a_2)
+\end{array}
+\right.
+\label{stage2}
+\end{equation}
+取人数为8即$n=8$，代入数据解得$F$最终解析式为\ref{sol}, 一个周期内每位队员发力$F$与时间$t$的函数图像如图\ref{fig:Ft}
+\begin{equation}
+F=
+\begin{cases}
+\frac{6.6281}{-0.11+0.5t^2-0.0514t}& \text{t<0.1}\\
+\frac{10.0864}{-0.0908+0.7036*t^2-0.4356t}& \text{0.1<t<0.5714}
+\end{cases}
+\label{sol}
+\end{equation}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{Ft.png}
+	\caption{一个周期内的F-t图}
+	\label{Ft} %此处的label相当于一个图片的专属标志，目的是方便上下文的引用
+\end{figure}
 
 \subsection{问题2}
 本问主要运用刚体转动公式，先求出鼓（空心圆柱体）的转动惯量，建立空间直角坐标系并进行受力分析，最后得出转动的角度。
