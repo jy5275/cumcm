@@ -126,9 +126,8 @@
 \subsection{精确控制下的运动模型}
 初始时排球从40cm高度静止落下，排球与鼓各自在z轴方向作周期运动。为消除不确定因素，使排球与鼓保持平稳的周期运动，在此设定二者运动周期相同，排球每次弹起高度都为40cm，每个周期球与鼓碰撞一次，碰撞点为$(0,0,0)$。
 \subsubsection{排球的运动模型}
-在我们设定的条件下，排球每次弹起达到相同高度，故需每次与鼓面碰撞后都有相同的初速度，且与碰撞前速度等大反向，撞后仅受重力作用，故有：
-$$v_2^{'}=-v_2$$ $$\frac{1}{2}g(\frac{T}{2})^2=0.4m$$
-\begin{equation*}
+在我们设定的条件下，排球每次弹起达到相同高度，故需每次与鼓面碰撞后都有相同的初速度，且与碰撞前速度等大反向，撞后仅受重力作用，故有方程\ref{eq:velo}
+\begin{equation}
 \left\{
 \begin{array}{lr}
 v_2^{'}=-v_2 \\
@@ -136,19 +135,26 @@ v_2^{'}=-v_2 \\
 \end{array}
 \right.
 \label{eq:velo}
-\end{equation*}
+\end{equation}
 其中$v_1, v_2, v_1^{'}, v_2^{'}$均取沿z轴向上为正，向下为负。所有符号代表的值均为国际制单位。
 \subsubsection{鼓的运动模型}
-在不与排球碰撞时，鼓仅受到各队员拉力与自身重力的作用。由于队员均匀站在周围，x、y轴方向上的受力相互抵消，因此仅z轴方向的合力非零，鼓在z轴方向受力状况为：
-$$Ma=nF\cos\theta-Mg$$
+在不与排球碰撞时，鼓仅受到各队员拉力与自身重力的作用。由于队员均匀站在周围，x、y轴方向上的受力相互抵消，因此仅z轴方向的合力非零，
+鼓在z轴方向受力状况如\ref{eq:drumF}
+\begin{equation}
+Ma=nF\cos\theta-Mg
+\label{eq:drumF}
+\end{equation}
 \subsubsection{球鼓碰撞}
 假设球鼓碰撞服从牛顿碰撞定律，法向相对速度在碰撞前与碰撞后比值恒定，满足方程\ref{eq:newton}
-$$e=\frac{|v_2^{'}-v_1^{'}|}{|v_2-v_1|} \label{eq:newton}$$
+\begin{equation}
+	e=\frac{|v_2^{'}-v_1^{'}|}{|v_2-v_1|}
+	\label{eq:newton}
+\end{equation} 
 其中$e$为碰撞系数，只与碰撞物体材质有关而与碰撞速度无关。查阅资料估计球与鼓面的碰撞系数$e=0.9$。
 值得注意的是，由于鼓自身的高度，球鼓碰撞点并不与鼓的质心相重合。
 \subsubsection{模型求解}
 由排球弹起最高点为40cm不难解出运动周期与排球和鼓的撞前、撞后速度如\ref{eq:velo}
-\begin{equation*}
+\begin{equation}
 \left\{
 \begin{array}{lr}
 T = 0.5714 \\
@@ -157,7 +163,7 @@ v_1 = 0.3684,\ v_1^{'} = -0.0514
 \end{array}
 \right.
 \label{eq:velo}
-\end{equation*}
+\end{equation}
 \begin{figure}
 	\centering
 	\includegraphics[width=.6\textwidth]{v.png}
@@ -199,14 +205,14 @@ F=\frac{ML}{nh}(g+a_2)
 \right.
 \label{stage2}
 \end{equation}
-取人数为8即$n=8$，代入数据解得$F$最终解析式为\ref{sol}, 一个周期内每位队员发力$F$与时间$t$的函数图像如图\ref{fig:Ft}
+取人数为8即$n=8$，代入数据解得$F$最终解析式为\ref{eq:sol}, 一个周期内每位队员发力$F$与时间$t$的函数图像如图\ref{fig:Ft}
 \begin{equation}
 F=
 \begin{cases}
 \frac{6.6281}{-0.11+0.5t^2-0.0514t}& \text{t<0.1}\\
 \frac{10.0864}{-0.0908+0.7036t^2-0.4356t}& \text{0.1<t<0.5714}
 \end{cases}
-\label{sol}
+\label{eq:sol}
 \end{equation}
 
 \begin{figure}
@@ -322,7 +328,11 @@ $$I=\int_{0}^{0.4} \frac{m_{1}l_{1}^{2}+3m_{1}l_{2}^{2}+m_{2}l_{2}^{2}+3m_{2} l_
 \section{误差分析}
 
 \subsection{空气阻力}
-空气阻力是物体下落过程中影响速度的重要因素。查阅资料得物体在介质运动所受的空气阻力为$$f=\frac{1}{2}c\rho Sv^n$$
+空气阻力是物体下落过程中影响速度的重要因素。查阅资料得物体在介质运动所受的空气阻力满足式\ref{eq:ff}
+\begin{equation}
+	f=\frac{1}{2}c\rho Sv^n
+	\label{eq:ff}
+\end{equation}
 其中$c$为空气阻力系数，与介质性质与物体形状有关，$\rho$是介质密度，$S$是物体垂直于运动方向的截面面积。在低速运动即$v<10m/s$情形下取$n=1$. 因此得排球下落最快时($v=2.8m/s$)所受空气阻力$f=0.0827N$，仅为所受重力的约$3\%$，因此我们认为忽略空气阻力并不会造成可观的误差。
 
 \subsection{鼓面静摩擦力}
