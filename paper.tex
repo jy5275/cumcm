@@ -226,48 +226,60 @@ F=
 	\centering
 	\includegraphics[width=.6\textwidth]{Ft.png}
 	\caption{一个周期内的F-t图}
-	\label{Ft} %此处的label相当于一个图片的专属标志，目的是方便上下文的引用
+	\label{fig:Ft} %此处的label相当于一个图片的专属标志，目的是方便上下文的引用
 \end{figure}
 
 \subsection{操作误差下的鼓面倾斜模型}
 队员在实际操作中难免出现发力时机与力度偏离策略规划的情况。本部分旨在建模分析发力时机与力度的误差对鼓倾斜角度的影响。
-鼓自身为刚体，
-本问主要运用刚体转动公式，先求出鼓（空心圆柱体）的转动惯量，建立空间直角坐标系并进行受力分析，最后得出转动的角度。
-\subsubsection{转动惯量$I$的确定}
-由于本题涉及刚体转动，因此需要先计算出转动惯量$I$，由于鼓绕轴的转动不是常见的转动模型，自然地，我们考虑用微元法解决。
-\begin{description}
-\item[步骤一] 如下图所示，取一垂直于转轴的剖面，得到一个矩形框，
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=.6\textwidth]{sectional}
-    \caption{鼓的剖面图}
-    \label{fig:p1}
-\end{figure}
-由公式
-\begin{equation*}
-	I =  \int r^2 dm
-\end{equation*}
-我们取每条矩形框为微元，考虑矩形框的转动惯量。
-\item[步骤二] 求解每条矩形框的转动惯量，分解为求四条边的转动惯量，已知线段绕其中心转动的转动惯量为
-\begin{equation*}
-	I =  \frac{ml^2}{12}
-\end{equation*}
-再由转动轴定理\footnote{将转轴外移$d$，则转动惯量增加$m\cdot d \cdot d$}便可以得到每条线框的转动惯量。
-\item[步骤三] 又设这些矩形框宽度为$dz$，便可以计算出他们的质量，再把$dz$从$0\~{}2r$积分便可以得到整体的转动惯量，计算公式为
-\begin{equation*}
-	\int_{0}^{0.4}  \frac{ m_{1} l_{1}^{2}+ 3 m_{1} l_{2}^{2} + m_{2} l_{2}^{2}+ 3m_{2} l_{1}^{2}} {6(2\pi  r^{2}+ 2\pi  rh)}
-\end{equation*}
-$m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量，含有小量$dz$。
-\end{description}
+鼓自身为刚体，由题目条件，受到八个队员的拉力与重力共9个力。由于考虑鼓面倾斜角度时不需考虑排球的影响与鼓的平动，因此我们只考察鼓在各队员拉力作用下的转动。
 
-\subsubsection{各种发力情况的模型}
+\subsubsection{计算转动惯量}
+易知鼓在不均匀拉力下转动的转轴平行x-y平面。转动惯量计算式为$I=\sum mr^2$，在此例中用微元法计算鼓的转动惯量。
+由于鼓为中空，故在此将鼓视为由若干个矩形框组合而成，对每个矩形框的四条边分别求转动惯量小量后再积分，得到鼓的转动惯量：
+$$I=\int_{0}^{0.4} \frac{m_{1}l_{1}^{2}+3m_{1}l_{2}^{2}+m_{2}l_{2}^{2}+3m_{2} l_{1}^{2}}{6(2\pi r^{2}+ 2\pi rh)}dz=0.02536$$
+其中$m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量
+%\begin{description}
+%\item[步骤一] 如下图所示，取一垂直于转轴的剖面，得到一个矩形框，
+%\begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=.6\textwidth]{sectional}
+%    \caption{鼓的剖面图}
+%    \label{fig:p1}
+%\end{figure}
+%由公式
+%\begin{equation*}
+%	I =  \int r^2 dm
+%\end{equation*}
+%我们取每条矩形框为微元，考虑矩形框的转动惯量。
+%\item[步骤二] 求解每条矩形框的转动惯量，分解为求四条边的转动惯量，已知线段绕其中心转动的转动惯量为
+%\begin{equation*}
+%	I =  \frac{ml^2}{12}
+%\end{equation*}
+%再由转动轴定理\footnote{将转轴外移$d$，则转动惯量增加$m\cdot d \cdot d$}便可以得到每条线框的转动惯量。
+%\item[步骤三] 又设这些矩形框宽度为$dz$，便可以计算出他们的质量，再把$dz$从$0\~{}2r$积分便可以得到整体的转动惯量，计算公式为
+%\begin{equation*}
+%	\int_{0}^{0.4}  \frac{ m_{1} l_{1}^{2}+ 3 m_{1} l_{2}^{2} + m_{2} l_{2}^{2}+ 3m_{2} l_{1}^{2}} {6(2\pi  r^{2}+ 2\pi  rh)}
+%\end{equation*}
+%$m_1$，$m_2$分别是矩形框的长$l_1$宽$l_2$的质量，含有小量$dz$。
+%\end{description}
+
+\subsubsection{转动过程分析}
+根据题述发力时机与力度的取值，我们将所有误差组合分为两类：
+\begin{itemize}
+	\item 如果所有人同时发力而力度有所差异时，根据每人的力度计算鼓所受力矩，设力的大小与方向在$\Delta t$时间内不变，
+	鼓面倾角为鼓在做匀加速转动$\Delta t$时间后转过的角度
+	\item 如果有人提前发力，则将鼓的转动分为两段$\Delta t$时间，第一段时间前所有人的力度(姑且称“基准力”)恰能使鼓静止在题述初始位置，
+	第一段时间开始时提前发力者增大力度而其他人保持基准力，第二段时间所有人开始发力，鼓在两段时间内分别做匀加速转动	
+\end{itemize}
+根据题述条件，在此取$\Delta t=0.1$
+
 \begin{enumerate}
 \item 第一问是后续解题的基础，设8名队员的位置和编号如下图
 \begin{figure}[!h]
     \centering
     \includegraphics[width=.6\textwidth]{person}
     \caption{8名队员的位置与编号}
-    \label{fig:p2}
+    \label{fig:members}
 \end{figure}
 第一问中只要考虑1号和5号队员即可，其他人的合力是竖直向上的不会给鼓一个转动趋势，建立如图所示的空间直角坐标系
 \begin{figure}[!h]
