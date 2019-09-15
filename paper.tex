@@ -271,23 +271,45 @@ $$I=\int_{0}^{0.4} \frac{m_{1}l_{1}^{2}+3m_{1}l_{2}^{2}+m_{2}l_{2}^{2}+3m_{2} l_
 	\item 如果有人提前发力，则将鼓的转动分为两段$\Delta t$时间，第一段时间前所有人的力度(姑且称“基准力”)恰能使鼓静止在题述初始位置，
 	第一段时间开始时提前发力者增大力度而其他人保持基准力，第二段时间所有人开始发力，鼓在两段时间内分别做匀加速转动	
 \end{itemize}
-根据题述条件，在此取$\Delta t=0.1$
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{col.pdf}
+	\caption{鼓面倾斜分析}
+	\label{fig:col} %此处的label相当于一个图片的专属标志，目的是方便上下文的引用
+\end{figure}
+根据题述条件，在此取$\Delta t=0.1$. 已鼓的质心为原点，水平方向两垂直直线为x、y轴，竖直方向为z轴建立空间直角坐标系如图\ref{fig:col}.
+八位队员等间距地站在鼓四周，绳子间两两夹角为45°如图\ref{fig:per}，拉力方向斜向上。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{person.png}
+	\caption{8名队员的位置与编号}
+	\label{fig:per}
+\end{figure}
+
+对于误差组合类型1，鼓面倾斜计算步骤如下：
+\begin{itemize}
+	\item 计算出8人各自拉力向量$\overrightarrow{F_1},\overrightarrow{F_2},...,\overrightarrow{F_8}$，在此重力对鼓旋转无贡献，故不考虑；
+	\item 由$\overrightarrow{L}=\sum \overrightarrow{r}\times \overrightarrow{F}\Delta t$得到出鼓在$\Delta t$内获得的角动量；
+	\item 由$\omega=\frac{\overrightarrow{L}}{I}$得到$\Delta t$后的最终角速度
+	\item 由$\Delta \phi=\frac{1}{2}\omega \Delta t$得到匀加速转动转过的角度
+\end{itemize}
+对于误差组合类型2，同样经上述步骤1~2得到出第一阶段结束时的角动量$\overrightarrow{L_1}$，再带入第二阶段每位队员的力度得到第二阶段的角动量增量$\overrightarrow{L_2}$，再带入总角动量$\overrightarrow{L}=\overrightarrow{L_1}+\overrightarrow{L_2}$到步骤3~4求得第二阶段末的角速度. 将两阶段转过的角度矢量合成即得到最终角度。计算所用matlab源代码见附件。
+
+\begin{tabular}{|c|c|}% 通过添加 | 来表示是否需要绘制竖线
+	\hline  % 在表格最上方绘制横线
+	(1,1) & (1,2)\\
+	\hline  %在第一行和第二行之间绘制横线
+	(2,1) & (2,2)\\
+	\hline % 在表格最下方绘制横线
+\end{tabular}
+
 
 \begin{enumerate}
 \item 第一问是后续解题的基础，设8名队员的位置和编号如下图
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=.6\textwidth]{person}
-    \caption{8名队员的位置与编号}
-    \label{fig:members}
-\end{figure}
+
 第一问中只要考虑1号和5号队员即可，其他人的合力是竖直向上的不会给鼓一个转动趋势，建立如图所示的空间直角坐标系
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=.6\textwidth]{axes}
-    \caption{8名队员的位置与编号}
-    \label{fig:p3}
-\end{figure}
+
 列出力的矢量表达式，之后再用空间解析几何知识计算力臂，代入公式，易算得转动角度。
 \end{enumerate}
 
